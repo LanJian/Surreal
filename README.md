@@ -20,3 +20,12 @@ The resulting world features a vast space to walk around in, floating spheres, a
 * Day/night cycle
 * Particle system
 * Simple 3D collision detection
+
+***
+
+#### Screenshots
+
+<a href="http://lanjian.github.com/Surreal/screenshots/dayNight1.png"><img src="http://lanjian.github.com/Surreal/screenshots/dayNight1.png" width="102" height="77" alt="Day Night Cycle 1"></a>
+<a href="http://lanjian.github.com/Surreal/screenshots/dayNight2.png"><img src="http://lanjian.github.com/Surreal/screenshots/dayNight2.png" width="102" height="77" alt="Day Night Cycle 2"></a>
+<a href="http://lanjian.github.com/Surreal/screenshots/dayNight3.png"><img src="http://lanjian.github.com/Surreal/screenshots/dayNight3.png" width="102" height="77" alt="Day Night Cycle 3"></a>
+<a href="http://lanjian.github.com/Surreal/screenshots/dayNight4.png"><img src="http://lanjian.github.com/Surreal/screenshots/dayNight4.png" width="102" height="77" alt="Day Night Cycle 4"></a>
