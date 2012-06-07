@@ -1,19 +1,3 @@
-/* ***************************************************************
- *
- * File :  main.cpp
- *
- * Author : Tiberiu Popa
- *          J. Alexander Clarke
- * Date   : June 18th, 2002
- *
- * Modified:
- *
- * Purpose: Simple OpenGL program to illustrate the use of SDL with OpenGL
- *
- * Notes: Based on an SDL tutorial from SDL's web site
- *
- * ****************************************************************/
-
 #include "glee/GLee.h"
 #include "SDL_OGL.h" 
 #include "glm.h"
@@ -61,38 +45,6 @@ GLuint groundTexture;
 GLuint fboId;
 
 void makeScene() {
-  //GLUquadricObj* qsphere = gluNewQuadric();
-  //glNewList(SCENE, GL_COMPILE);
-
-  //gluQuadricDrawStyle(qsphere, GLU_FILL);
-  //gluQuadricNormals(qsphere, GLU_SMOOTH);
-  //gluQuadricOrientation(qsphere, GLU_OUTSIDE);
-  //gluQuadricTexture(qsphere, GL_FALSE);
-
-  //glColor3f(1,1,0);
-  //glPushMatrix();
-  //glTranslatef(0,-10,0);
-  //gluSphere(qsphere, 13, 20, 20);
-  //glPopMatrix();
-
-  //glEndList();
-  //gluDeleteQuadric(qsphere);
-
-  //root = new SceneNode("root");
-
-  //SceneNode* sphere1 = new GeometryNode("s1", new Sphere());
-  //sphere1->translate(Vector3D(0,3,-300));
-  //sphere1->scale(Vector3D(13,13,13));
-  //sphere1->rotate('x', 90);
-
-  //SceneNode* sphere2 = new GeometryNode("s2", new Sphere());
-  //sphere2->translate(Vector3D(-30,3,-300));
-  //sphere2->scale(Vector3D(13,13,13));
-  //sphere2->rotate('x', 90);
-
-
-  //root->add_child(sphere1);
-  //root->add_child(sphere2);
 
   venusModel = glmReadOBJ("models/venusl.obj");
   glmUnitize(venusModel);
@@ -111,43 +63,8 @@ void makeScene() {
 
 void drawScene(int pass, bool doOffset = false, bool applyTex = false){
 
-    //glActiveTexture(GL_TEXTURE1);
-    //glDisable(GL_TEXTURE_2D);
-    //glActiveTexture(GL_TEXTURE0);
-  
-    //glEnable(GL_TEXTURE_2D);
-    //glBindTexture(GL_TEXTURE_2D, texture);
-
-    //glColor4f(1,1,1,1);
-    //glEnable(GL_BLEND);
-    //glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-
-      //glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-    //// test
-    //glPushMatrix();
-    //glTranslatef(0,0,-100);
-    //glRotatef(90, 1, 0, 0);
-    //glBegin(GL_POLYGON);
-    //glTexCoord2f(0,0);
-    //glVertex3f(-1,0,-1);
-    //glTexCoord2f(0,1);
-    //glVertex3f(-1,0,1);
-    //glTexCoord2f(1,1);
-    //glVertex3f(1,0,1);
-    //glTexCoord2f(1,0);
-    //glVertex3f(1,0,-1);
-    //glEnd();
-    //glPopMatrix();
-
-    //glDisable(GL_BLEND);
-    //glDisable(GL_TEXTURE_2D);
-
-    //glActiveTexture(GL_TEXTURE1);
-    //glEnable(GL_TEXTURE_2D);
-    //glActiveTexture(GL_TEXTURE0);
 
     glPushMatrix();
-    //glScalef(1.5,1.5,1.5);
     glTranslatef(-175, 240, -470);
     glScalef(10,10,10);
     particles->draw();
@@ -167,7 +84,6 @@ void drawScene(int pass, bool doOffset = false, bool applyTex = false){
     glBindTexture(GL_TEXTURE_2D, groundTexture);
       glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     // ground
-    //glColor3f(0.80,0.56,0.1);
     if(pass == 2)
       glColor3f(0.3,0.3,0.3);
     else{
@@ -193,9 +109,6 @@ void drawScene(int pass, bool doOffset = false, bool applyTex = false){
 
     glDisable(GL_TEXTURE_2D);
 
-      //glEnable(GL_TEXTURE_2D);
-      //glBindTexture(GL_TEXTURE_2D, groundTexture);
-      //glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
     glPushMatrix();
     world->draw(cameraPos, 500, doOffset);
     glPopMatrix();
@@ -308,7 +221,6 @@ void render(){
   glPushMatrix();
 
   glLoadIdentity();
-  // TODO temp values
   gluPerspective(45.0, (GLfloat)1280/(GLfloat)720, 0.1, 100000.0);
   glGetDoublev(GL_MODELVIEW_MATRIX, cameraProjectionMatrix);
 
@@ -326,7 +238,6 @@ void render(){
   
     glLoadIdentity();
     glOrtho(-750, 750, -750, 750, 1, 100000);
-    //gluPerspective(45.0f, 1.0f, 1.0f, 100000.0f);
     glGetDoublev(GL_MODELVIEW_MATRIX, lightProjectionMatrix);
     
     glLoadIdentity();
@@ -367,11 +278,6 @@ void render(){
     drawScene(1);
     glPopMatrix();
 
-    //Read the depth buffer into the shadow map texture
-    //glActiveTexture(GL_TEXTURE1);
-    //glBindTexture(GL_TEXTURE_2D, shadowMapTexture);
-    //glCopyTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 0, 0, shadowMapSize, shadowMapSize);
-    //glActiveTexture(GL_TEXTURE0);
 
     //restore states
     glCullFace(GL_BACK);
@@ -387,7 +293,7 @@ void render(){
 
   GLfloat white[] = {1,1,1,1};
   GLfloat black[] = {0,0,0,0};
-  //
+  
   Colour f = skydome.getFogColor(curTime);
   GLfloat fogcolor[] = {f.R(), f.G(), f.B(),1};
   glFogfv(GL_FOG_COLOR, fogcolor);            // Set Fog Color
@@ -628,15 +534,10 @@ int main(int argc, char *argv[])
 
   Uint8* keys; 
   int done=0; 
-    //std::cerr << "shadow"
 
-  //SM.LoadSound("card.wav");
-  //SM.LoadSound("OBS.wav");
-  //SM.LoadSound("ghost.wav");
   SM.LoadMusic("ambience.mp3");
 
   SM.PlayMusic(0);
-  //SM.PlayMusic(2);
 
   world = new World(-750, -750, 1500, 1500, NULL);
   

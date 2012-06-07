@@ -54,38 +54,23 @@ void SkyDome::draw(int time){
       int a = i*(m_nLong+1) + j;
       int b = a + (m_nLong+1);
 
-      // TODO use better interpolation(maybe more control points)
-      //t = (double)i*2/m_nLat;
-      //if(t>1) t=1;
-      //Colour top = zenith*t + horizon*(1-t);
-      //t = (double)(i+1)*2/m_nLat;
-      //if(t>1) t=1;
-      //Colour bottom = zenith*t + horizon*(1-t);
 
       float VTop = (float)(i+1)*2/(m_nLat+3);
       float VBot = (float)(i+2)*2/(m_nLat+3);
 
-
-      //std::cerr << U << " " << VBot << std::endl;
-
       glBegin(GL_TRIANGLES);
-      //glColor3f(top.R(), top.G(), top.B());
       glTexCoord2f(U,VTop);
       glVertex3d(m_vertices[a][0], m_vertices[a][1], m_vertices[a][2]);
-      //glColor3f(bottom.R(), bottom.G(), bottom.B());
       glTexCoord2f(U,VBot);
       glVertex3d(m_vertices[b][0], m_vertices[b][1], m_vertices[b][2]);
-      //glColor3f(top.R(), top.G(), top.B());
       glTexCoord2f(U,VTop);
       glVertex3d(m_vertices[a+1][0], m_vertices[a+1][1], m_vertices[a+1][2]);
       glEnd();
 
       glBegin(GL_TRIANGLES);
-      //glColor3f(bottom.R(), bottom.G(), bottom.B());
       glTexCoord2f(U,VBot);
       glVertex3d(m_vertices[b][0], m_vertices[b][1], m_vertices[b][2]);
       glVertex3d(m_vertices[b+1][0], m_vertices[b+1][1], m_vertices[b+1][2]);
-      //glColor3f(top.R(), top.G(), top.B());
       glTexCoord2f(U,VTop);
       glVertex3d(m_vertices[a+1][0], m_vertices[a+1][1], m_vertices[a+1][2]);
       glEnd();
