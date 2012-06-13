@@ -11,7 +11,7 @@ I wanted to create a surrealist world inspired by the artworks of [Georgio De Ch
 * Harsh Mediterranean sunlight and harsh shadows
 * Strange juxaposition of objects
 
-The resulting world features a vast space to walk around in, floating spheres, a day/night cycle, and a bleeding venus.
+The resulting world features a vast space to walk around in, floating spheres, a day/night cycle, and a bleeding Venus.
 
 ### Features
 
